@@ -47,7 +47,7 @@ font-5=CaskaydiaCove Nerd Font:size=11;2
 ; modules position
 modules-left = bspwm
 modules-center = time
-modules-right = pulseaudio-control wlan powermenu
+modules-right = pulseaudio-control wlan powermenu powermode
 
 ; tray
 tray-offset-x = 0
@@ -89,6 +89,36 @@ label-empty-padding = 1
 
 label-occupied = %index%
 label-occupied-padding = 1
+
+[module/powermode]
+type = custom/menu
+
+expand-right = true
+
+format-margin = 1
+
+label-open = ⏻ 
+label-open-foreground = ${colors.secondary}
+label-close = cancel
+label-close-foreground = ${colors.secondary}
+label-separator = |
+label-separator-foreground = ${colors.foreground-alt}
+
+menu-0-0 = reboot
+menu-0-0-exec = menu-open-1
+menu-0-1 = poweroff
+menu-0-1-exec = menu-open-2
+menu-0-2 = suspend
+menu-0-2-exec = menu-open-3
+
+menu-1-0 = reboot
+menu-1-0-exec = reboot
+
+menu-2-0 = power off
+menu-2-0-exec = poweroff
+
+menu-3-0 = suspend
+menu-3-0-exec = systemctl suspend
 
 [module/wlan]
 type = internal/network
