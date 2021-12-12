@@ -1,16 +1,30 @@
-##---------- Keybindings for bspwm ----------##
+##---------- Applications ----------##
 
-# Terminal 
 super + Return
 	kitty
+
+super + shift + e
+	thunar
+
+super + shift + d
+	discord
+
+super + shift + f
+	firefox
+
+super + space
+	rofi -show drun -theme ~/.config/rofi/config
+
+super + shift + n
+	kitty nmtui
 
 ##---------- Keybindings for Audio Control ----------##
 
 XF86AudioRaiseVolume
-  	pactl set-sink-volume 0 +5%
+	pactl set-sink-volume 0 +5%
 
 XF86AudioLowerVolume
-  	pactl set-sink-volume 0 -5%
+	pactl set-sink-volume 0 -5%
 
 XF86AudioMute
 	pactl set-sink-mute 0 toggle
@@ -24,30 +38,11 @@ XF86AudioPrev
 XF86AudioPlay 
 	playerctl play-pause
 
-
-##---------- Applications ----------##
-
-# Launch Apps
-super + shift + d
-	discord
-
-super + shift + f
-	firefox
-
-super + space
-  rofi -show drun -display-drun "" -theme ~/.config/rofi/config.rasi
-
-super + shift + n
-	kitty nmtui
-
-super + shift + s
-	maim
-
 ##---------- Bspwm ----------##
 
 # Lockscreen
 super + l
-  betterlockscreen -l dimblur
+	betterlockscreen -l dimblur
 
 # Reload Keybindings
 super + Escape
@@ -61,14 +56,10 @@ ctrl + alt + {q,r}
 super + c
 	bspc node -c
 
-# kill
-super + shift + q
-  xkill
-
 # Fullscreen or Monocle
 super + f
 	bspc desktop -l next
-	
+
 # Split horizontal, vertical or cancel
 super + {h,v,q}
 	bspc node -p {east,south,cancel}
@@ -79,11 +70,7 @@ super + ctrl + {1-9}
 
 # Toggle beetwen floating & tiled
 super + shift + space
-  bspc node -t "~"{floating,tiled}
-
-# Pseudo Tiled & tiled mode
-super + {p,t}
-  bspc node -t {pseudo_tiled,tiled}
+	bspc node -t "~"{floating,tiled}
 
 # Set the node flags
 super + ctrl + {m,x,y,z}
@@ -93,17 +80,9 @@ super + ctrl + {m,x,y,z}
 super + {_,shift + }{Left,Down,Up,Right}
 	bspc node -{f,s} {west,south,north,east}
 
-# Change focus to next window, including floating window
-alt + {_,shift + }Tab
-	bspc node -f {next.local,prev.local}
-
 # Switch workspace
 ctrl + alt + {Left,Right}
 	bspc desktop -f {prev.local,next.local}
-
-# Switch to last opened workspace
-super + {Tab,grave}
-	bspc {node,desktop} -f last
 
 # Send focused window to another workspace
 super + {_,shift + }{1-8}
@@ -113,10 +92,10 @@ super + {_,shift + }{1-8}
 super + control + {Left,Right,Up,Down}
 	bspc node -z {left -30 0,right 30 0,top 0 -30,bottom 0 30}
 	
-## Shrinking windows
+# Shrinking windows
 super + alt + {Left,Right,Up,Down}
 	bspc node -z {left 30 0,right -30 0,top 0 30,bottom 0 -30}
 	
-## Move floating windows
+# Move floating windows
 alt + shift + {Left,Down,Up,Right}
 	bspc node -v {-20 0,0 20,0 -20,20 0}

@@ -1,3 +1,7 @@
+configuration {
+  modi: [window,run,ssh,drun];
+}
+
 * {
   background-color: #06081315;
   text-color: #E9E9E9;
