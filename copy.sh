@@ -37,3 +37,6 @@ echo ": bash - .bashrc"
 
 cp ~/.Xresources ./x/Xresources
 echo ": x - .Xresources"
+
+cp ~/.slowlydev.omp.json ./oh-my-posh/
+echo ": oh-my-posh - .slowlydev.omp.json"
