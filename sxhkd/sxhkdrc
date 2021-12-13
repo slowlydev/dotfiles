@@ -101,4 +101,4 @@ super + alt + {Left,Right,Up,Down}
 	
 # Move floating windows
 alt + shift + {Left,Down,Up,Right}
-	bspc node -v {-20 0,0 20,0 -20,20 0}
+	bspc node -v {-30 0,0 30,0 -30,30 0}
