@@ -18,6 +18,9 @@ super + space
 super + shift + n
 	kitty nmtui
 
+super + shift + s
+	spectacle -r
+
 ##---------- Keybindings for Audio Control ----------##
 
 XF86AudioRaiseVolume

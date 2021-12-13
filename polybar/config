@@ -127,7 +127,7 @@ menu-4-0-exec = sh ~/.scripts/close-bspwm.sh
 
 [module/wlan]
 type = internal/network
-interface = wlan0
+interface = wlp4s0
 interval = 3.0
 
 format-connected =   <label-connected>
