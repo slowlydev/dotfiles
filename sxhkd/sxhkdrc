@@ -21,6 +21,9 @@ super + shift + n
 super + shift + s
 	spectacle -r
 
+super + k
+	sh ~/.scripts/connect-airpods.sh
+
 ##---------- Keybindings for Audio Control ----------##
 
 XF86AudioRaiseVolume
