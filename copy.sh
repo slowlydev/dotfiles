@@ -2,17 +2,20 @@
 
 echo "copying dotfiles..."
 
-cp ~/.config/kitty/kitty.conf ./kitty/
-echo ": kitty - kitty.conf"
+cp ~/.config/alacritty/* ./alacritty/
+echo ": alacritty"
 
-cp ~/.config/rofi/config.rasi ./rofi/
-echo ": rofi - config.rasi"
+cp ~/.config/rofi/* ./rofi/
+echo ": rofi"
 
-cp ~/.config/polybar/config ./polybar/ 
-echo ": polybar - config"
+cp ~/.config/rofi/colors/* ./rofi/colors/
+echo ": rofi - colors"
 
-cp ~/.config/polybar/launch.sh ./polybar/
-echo ": polybar - launch script"
+cp ~/.config/polybar/* ./polybar/ 
+echo ": polybar"
+
+cp ~/.config/polybar/scripts/* ./polybar/scripts/
+echo ": polybar - scripts"
 
 cp ~/.config/dunst/dunstrc ./dunst/
 echo ": dunst - dunstrc"
@@ -26,8 +29,11 @@ echo ": backgrounds"
 cp ~/.scripts/* ./scripts/
 echo ": scripts"
 
-cp ~/.config/bspwm/bspwmrc ./bspwm/ 
-echo ": bspwm - bspwmrc"
+cp ~/.config/bspwm/* ./bspwm/ 
+echo ": bspwm"
+
+cp ~/.config/bspwm/scripts/* ./bspwm/scripts/
+echo ": bspwm - scripts"
 
 cp ~/.config/picom/picom.conf ./picom/
 echo ": picom - picom.conf"
@@ -40,3 +46,6 @@ echo ": x - .Xresources"
 
 cp ~/.slowlydev.omp.json ./oh-my-posh/
 echo ": oh-my-posh - .slowlydev.omp.json"
+
+cp ~/.local/bin/* ./bin/
+echo ": bin"

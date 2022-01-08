@@ -1,7 +1,7 @@
 ##---------- Applications ----------##
 
 super + Return
-	kitty
+	alacritty
 
 super + shift + e
 	thunar
@@ -13,7 +13,7 @@ super + shift + f
 	firefox
 
 super + space
-	rofi -show drun -theme ~/.config/rofi/config
+	rofi -show drun -theme ~/.config/rofi/appmnu.rasi
 
 super + shift + n
 	kitty nmtui
