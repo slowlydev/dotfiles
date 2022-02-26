@@ -24,16 +24,19 @@ super + shift + s
 super + k
 	sh ~/.scripts/connect-airpods.sh
 
+Print
+    DATE=$(date '+%b%d-%H-%M.png'); \
+    maim -us "$HOME/Pictures/Screenshots/$DATE"; \
+    sh ~/.local/bin/viewscr ~/Pictures/screenshots/$DATE | xclip -selection clipboard -t image/png
+
 ##---------- Keybindings for Audio Control ----------##
 
-XF86AudioRaiseVolume
-	pactl set-sink-volume 0 +5%
-
-XF86AudioLowerVolume
-	pactl set-sink-volume 0 -5%
+# Manage volume
+XF86Audio{Raise,Lower}Volume
+  amixer -q set Master 5%{+,-}
 
 XF86AudioMute
-	pactl set-sink-mute 0 toggle
+  amixer set Master toggle
 
 XF86AudioNext 
 	playerctl next
