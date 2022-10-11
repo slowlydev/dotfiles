@@ -1,0 +1,54 @@
+* {
+  font-family: Iosevka Nerd Font Mono, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
+  font-size: 12px;
+  min-height: 0;
+}
+
+window#waybar {
+  color: #ffffff;
+  background-color: #101012;
+  padding: 5px;
+  margin-top: 5px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+
+widget {
+  color: #ffffff;
+  background-color: #27282b;
+
+  border-radius: 5px;
+}
+
+widget > label {
+  padding: 0 10px;
+}
+
+/* hyprland workspaces styles */
+#workspaces button {
+  border-radius: 5px;
+}
+#workspaces button.active {
+  background-color: #7f3fbf;
+}
+#workspaces button.urgent {
+  background-color: #eb4d4b;
+}
+
+/* other module specific styles */
+#network.disconnected {
+  background-color: #ff7f7f;
+}
+#pulseaudio.muted {
+  background-color: #ff7f7f;
+}
+#tray {
+  padding: 0 10px;
+}
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+#tray > .needs-attention {
+  background-color: #ff7f7f;
+  -gtk-icon-effect: highlight;
+}
