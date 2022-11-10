@@ -1,0 +1,18 @@
+* {
+  font: "Inter Nerd Font 14";
+  
+  background: #181818;
+  background-secondary: #292929;
+
+  button: #383838;
+  button-selected: #484848;
+  border: #d1d1d1;
+
+  background-color: @background;
+  
+  color: #ffffff;
+
+  margin: 0;
+  padding: 0;
+  spacing: 0;
+}

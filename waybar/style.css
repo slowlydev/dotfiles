@@ -1,54 +1,70 @@
-* {
-  font-family: Iosevka Nerd Font Mono, FontAwesome, Roboto, Helvetica, Arial, sans-serif;
-  font-size: 12px;
-  min-height: 0;
-}
-
 window#waybar {
+  font-family: "Inter Nerd Font";
+  font-size: 14px;
+  font-weight: 600;
+
   color: #ffffff;
-  background-color: #101012;
-  padding: 5px;
-  margin-top: 5px;
-  margin-left: 5px;
-  margin-right: 5px;
+
+  background: #181818;
 }
 
-widget {
-  color: #ffffff;
-  background-color: #27282b;
-
-  border-radius: 5px;
-}
-
-widget > label {
-  padding: 0 10px;
-}
-
-/* hyprland workspaces styles */
 #workspaces button {
-  border-radius: 5px;
-}
-#workspaces button.active {
-  background-color: #7f3fbf;
-}
-#workspaces button.urgent {
-  background-color: #eb4d4b;
+  color: #434343;
 }
 
-/* other module specific styles */
-#network.disconnected {
-  background-color: #ff7f7f;
+#workspaces button.active {
+  color: #dedede;
 }
-#pulseaudio.muted {
-  background-color: #ff7f7f;
+
+.modules-center > widget > box > button {
+  border: 0px;
+  background-color: transparent;
 }
-#tray {
-  padding: 0 10px;
+
+.modules-right > widget > button {
+  border: 0px;
+  background-color: transparent;
 }
-#tray > .passive {
-  -gtk-icon-effect: dim;
+
+.modules-right > widget > button > label {
+  color: #ffffff;
 }
-#tray > .needs-attention {
-  background-color: #ff7f7f;
-  -gtk-icon-effect: highlight;
+
+/* battery widget */
+#battery {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#battery.warning {
+  color: orange;
+}
+#battery.critical {
+  color: #a54242;
+}
+#battery.warning.discharging {
+  animation-name: blink-warning;
+  animation-duration: 3s;
+}
+#battery.critical.discharging {
+  animation-name: blink-critical;
+  animation-duration: 2s;
+}
+@keyframes blink-warning {
+  70% {
+    color: white;
+  }
+  to {
+    color: white;
+    background-color: orange;
+  }
+}
+@keyframes blink-critical {
+  70% {
+    color: white;
+  }
+  to {
+    color: white;
+    background-color: #a54242;
+  }
 }

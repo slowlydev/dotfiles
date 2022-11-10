@@ -1,0 +1,51 @@
+{
+  "position": "top",
+  "modules-left": [],
+  "modules-center": ["wlr/workspaces"],
+  "modules-right": ["tray", "custom/bluetooth", "network", "pulseaudio", "battery", "clock", "custom/power"],
+  "wlr/workspaces": {
+    "disable-scroll": true,
+    "all-outputs": true,
+    "on-click": "activate"
+  },
+  "clock": {
+    "format": "{:%d %b %I:%M}",
+    "interval": 50
+  },
+  "network": {
+    "format": "{essid} ",
+    "on-click": "~/.config/rofi/scripts/rofi-wifi-menu.sh",
+    "tooltip": false
+  },
+  "pulseaudio": {
+    "format": "{volume}% {icon}",
+    "format-muted": "<span color=\"#4a4a4a\"> </span>",
+    "format-icons": ["", "", ""],
+    "tooltip": false
+  },
+  "battery": {
+    "format": "{capacity}% {icon}",
+    "format-charging": "{capacity}% ",
+    "format-icons": ["", "", "", "", ""],
+    "states": {
+      "warning": 30,
+      "critical": 15
+    },
+    "tooltip": false
+  },
+  "custom/power": {
+    "format": "",
+    "on-click": "~/.config/rofi/scripts/launcher.sh",
+    "tooltip": false
+  },
+  "custom/bluetooth": {
+    "exec": "~/.config/rofi/scripts/rofi-bluetooth.sh --status",
+    "interval": 1,
+    "on-click": "~/.config/rofi/scripts/rofi-bluetooth.sh",
+    "tooltip": false
+  },
+  "tray": {
+    "icon-size": 14,
+    "spacing": 10
+  }
+}

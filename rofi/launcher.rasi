@@ -1,0 +1,51 @@
+@import "~/.config/rofi/shared.rasi"
+
+configuration {
+	mode: "drun";
+	drun-display-format: "{name}";
+}
+
+window {
+	location: center;
+	width: 550;
+}
+
+inputbar {
+	children: [ entry ];
+	padding: 17px 18px;
+	border: 0 0 1px;
+	border-color: @border;
+}
+
+entry, element-icon, element-text {
+  vertical-align: 0.5;
+}
+
+entry {
+	placeholder: "Search";
+}
+
+listview {
+	lines: 3;
+}
+
+element {
+	children: [ element-icon, element-text ];
+	orientation: horizontal;
+	padding: 17px 18px;
+	background-color: transparent;
+}
+
+element selected normal, element selected active {
+	background-color: @background-secondary;
+}
+
+element-icon {
+	size: 27px;
+	padding: 0 10px 0 0;
+	background-color: transparent;
+}
+
+element-text {
+	background-color: transparent;
+}
