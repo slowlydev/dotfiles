@@ -1,0 +1,107 @@
+##---------- Applications ----------##
+
+super + Return
+	kitty
+
+super + shift + e
+	thunar
+
+super + shift + d
+	discord
+
+super + shift + f
+	firefox
+
+super + space
+	rofi -show drun -theme ~/.config/rofi/config
+
+super + shift + n
+	kitty nmtui
+
+super + shift + s
+	spectacle -r
+
+super + k
+	sh ~/.scripts/connect-airpods.sh
+
+##---------- Keybindings for Audio Control ----------##
+
+XF86AudioRaiseVolume
+	pactl set-sink-volume 0 +5%
+
+XF86AudioLowerVolume
+	pactl set-sink-volume 0 -5%
+
+XF86AudioMute
+	pactl set-sink-mute 0 toggle
+
+XF86AudioNext 
+	playerctl next
+
+XF86AudioPrev
+	playerctl previous
+
+XF86AudioPlay 
+	playerctl play-pause
+
+##---------- Bspwm ----------##
+
+# Lockscreen
+super + l
+	betterlockscreen -l dimblur
+
+# Reload Keybindings
+super + Escape
+	pkill -USR1 -x sxhkd
+
+# Quit/Restart bspwm
+ctrl + alt + {q,r}
+	bspc {quit,wm -r}
+
+# Close App
+super + c
+	bspc node -c
+
+# Fullscreen or Monocle
+super + f
+	bspc desktop -l next
+
+# Split horizontal, vertical or cancel
+super + {h,v,q}
+	bspc node -p {east,south,cancel}
+
+# Preselect the ratio
+super + ctrl + {1-9}
+	bspc node -o 0.{1-9}
+
+# Toggle beetwen floating & tiled
+super + shift + space
+	bspc node -t "~"{floating,tiled}
+
+# Set the node flags
+super + ctrl + {m,x,y,z}
+	bspc node -g {marked,locked,sticky,private}
+
+# Send the window to another edge of the screen
+super + {_,shift + }{Left,Down,Up,Right}
+	bspc node -{f,s} {west,south,north,east}
+
+# Switch workspace
+ctrl + alt + {Left,Right}
+	bspc desktop -f {prev.local,next.local}
+
+# Send focused window to another workspace
+super + {_,shift + }{1-8}
+	bspc {desktop -f,node -d} '^{1-8}'
+
+# Expanding windows
+super + control + {Left,Right,Up,Down}
+	bspc node -z {left -30 0,right 30 0,top 0 -30,bottom 0 30}
+	
+# Shrinking windows
+super + alt + {Left,Right,Up,Down}
+	bspc node -z {left 30 0,right -30 0,top 0 30,bottom 0 -30}
+	
+# Move floating windows
+alt + shift + {Left,Down,Up,Right}
+	bspc node -v {-30 0,0 30,0 -30,30 0}

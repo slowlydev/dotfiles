@@ -1,0 +1,40 @@
+@import "~/.config/rofi/shared.rasi"
+
+window {
+	location: center;
+	width: 550;
+}
+
+inputbar {
+	children: [ entry ];
+	padding: 17px 18px;
+	border: 0 0 1px;
+	border-color: @border;
+}
+
+// entry, element-text {
+//   vertical-align: 0.5;
+// }
+
+entry {
+	placeholder: "Search";
+}
+
+listview {
+	lines: 5;
+}
+
+element {
+	children: [ element-text ];
+	// orientation: horizontal;
+	padding: 17px 18px;
+	background-color: transparent;
+}
+
+element selected normal, element selected active {
+	background-color: @background-secondary;
+}
+
+element-text {
+	background-color: transparent;
+}

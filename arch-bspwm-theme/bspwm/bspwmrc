@@ -1,0 +1,106 @@
+#!/bin/sh
+
+# ##############################################################################
+# #                                  ENV VARS                                  # 
+# ##############################################################################
+
+# Variables
+export BROWSER=firefox
+export EDITOR=vim
+
+# Set screen
+xrandr --output DisplayPort-1 --mode 3440x1440 --rate 99.98 &
+
+# Start sxhkd
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+# Change Cursor from default corsshair
+xsetroot -cursor_name left_ptr
+
+# ##############################################################################
+# #                                  FUNCTIONS                                 # 
+# ##############################################################################
+
+# Credits to 6gk/polka
+rule() { bspc rule -a "$@" & }
+config() { bspc config "$@" & }
+
+# ##############################################################################
+# #                                AUTOSTART APPS                              #
+# ##############################################################################
+
+# Autostart Apps
+dunst --config ~/.config/dunst/dunstrc &
+picom --config ~/.config/picom/picom.conf &
+
+# Start polybar
+sh ~/.config/polybar/launch.sh
+
+# Set Wallpaper
+feh ~/.backgrounds/andreas-kind-bUhzlj3gGso-unsplash.jpg --bg-fill
+
+# Load custom ansi layout
+sh ~/.scripts/load-custom-ansi.sh
+
+# Loading custom cursor speed
+sh ~/.scripts/load-custom-cursor-speed.sh
+
+# I hate mouse drift.
+xset m 0 0
+
+# Thunar auto mount usb
+udiskie -2
+
+# ##############################################################################
+# #                                 WINDOW RULES                               #
+# ##############################################################################
+
+bspc monitor -d I II III IV V VI
+
+#rule Vivaldi-stable	desktop=I
+#rule firefox					desktop=I
+#rule discord					desktop=II
+#rule Code						desktop=III
+#rule Lutris					desktop=V state=floating
+#rule Steam           desktop=V
+#rule mpv							state=floating
+#rule Viewnior				state=floating
+rule Cider			     	desktop=II state=floating
+
+# ##############################################################################
+# #                            GENERAL CONFIGURATION                           #
+# ##############################################################################
+
+config pointer_modifier             Mod4
+
+config border_width                 4
+config window_gap                   4
+
+config top_padding                  35
+config bottom_padding               0
+
+config split_ratio                  0.62
+config borderless_monocle           true
+config gapless_monocle              true
+
+# Yes, this is stolen from gk.
+outer='0x101415'   # outer
+inner1='0x151a1c'  # focused
+inner2='0x131718'  # normal
+
+targets() {
+ 	case $1 in
+		focused) bspc query -N -n .local.focused.\!fullscreen;;
+		normal)  bspc query -N -n .local.\!focused.\!fullscreen
+	esac | grep -iv "$v"
+}
+
+draw() { chwb2 -I "$inner" -O "$outer" -i "4" -o "9" $* |:; }
+
+initial draw, and then subscribe to events
+{ echo; bspc subscribe node_geometry node_focus; } |
+ 	while read -r _; do
+		[ "$v" ] || v='abcdefg'
+		inner=$inner1 draw "$(targets focused)"
+		inner=$inner2 draw "$(targets normal)"
+    done

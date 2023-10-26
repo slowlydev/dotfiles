@@ -1,0 +1,70 @@
+window#waybar {
+  font-family: "Inter Nerd Font";
+  font-size: 14px;
+  font-weight: 600;
+
+  color: #ffffff;
+
+  background: #181818;
+}
+
+#workspaces button {
+  color: #434343;
+}
+
+#workspaces button.active {
+  color: #dedede;
+}
+
+.modules-center > widget > box > button {
+  border: 0px;
+  background-color: transparent;
+}
+
+.modules-right > widget > button {
+  border: 0px;
+  background-color: transparent;
+}
+
+.modules-right > widget > button > label {
+  color: #ffffff;
+}
+
+/* battery widget */
+#battery {
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-direction: alternate;
+}
+#battery.warning {
+  color: orange;
+}
+#battery.critical {
+  color: #a54242;
+}
+#battery.warning.discharging {
+  animation-name: blink-warning;
+  animation-duration: 3s;
+}
+#battery.critical.discharging {
+  animation-name: blink-critical;
+  animation-duration: 2s;
+}
+@keyframes blink-warning {
+  70% {
+    color: white;
+  }
+  to {
+    color: white;
+    background-color: orange;
+  }
+}
+@keyframes blink-critical {
+  70% {
+    color: white;
+  }
+  to {
+    color: white;
+    background-color: #a54242;
+  }
+}

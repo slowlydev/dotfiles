@@ -1,0 +1,28 @@
+#! /bin/sh
+
+xrandr --output DisplayPort-1 --mode 3440x1440 --rate 99.98 &
+
+pgrep -x sxhkd > /dev/null || sxhkd &
+
+bspc monitor -d I II III IV V
+
+bspc config border_width         2
+bspc config window_gap           5
+bspc config border_radius        20
+bspc config split_ratio          0.50
+bspc config borderless_monocle   true
+bspc config gapless_monocle      true
+
+bspc config active_border_color \#E84F4F
+
+bspc rule -a Gimp desktop='^8' state=floating follow=on
+bspc rule -a Chromium desktop='^2'
+bspc rule -a mplayer2 state=floating
+bspc rule -a Kupfer.py focus=on
+bspc rule -a Screenkey manage=off
+
+sh ~/.config/polybar/launch.sh &
+picom --experimental-backend &
+dunst ~/.config/dunst/dunstrc &
+feh --bg-fill ~/.backgrounds/andreas-kind-bUhzlj3gGso-unsplash.jpg &
+sh ~/.scripts/autostart.sh &
